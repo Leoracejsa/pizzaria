@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+
+	
+<ui:composition template="modelo.xhtml">
+
+
+	<ui:define name="titulo">#{msgs.tituloLogin}</ui:define>
+
+	<ui:define name="conteudo">
+	<div id="login1" align="center">
+		<p:panelGrid columns="3">
+			<p:outputLabel for="usuario" value="#{msgs.campoUsuario}:" />
+			<p:inputText id="usuario" value="#{loginMB.usuario}" required="true"></p:inputText>
+			<h:message for="usuario" errorStyle="color: red"
+				infoStyle="color: blue" warnStyle="color: yellow" />
+
+			<p:outputLabel for="senha" value="#{msgs.campoSenha}:" />
+			<p:password id="senha" value="#{loginMB.senha}" required="true"></p:password>
+			<h:message for="senha" errorStyle="color: red"
+				infoStyle="color: blue" warnStyle="color: yellow" />
+
+			<h:outputText value="" />
+			<p:commandButton ajax="false" value="#{msgs.botaoAutenticar}"
+				action="#{loginMB.acaoAutenticar}"></p:commandButton>
+		</p:panelGrid>
+</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

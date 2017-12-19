@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="titulo">Título</ui:insert></title>
+	<meta content="text/html; charset=ISO-88591" http-equiv="Content-Type" />
+</h:head>
+<h:body>
+
+<p:panel style="text-align: center;">
+	<h:form id="form" prependId="false">
+
+<div id="imagem" align="center">
+	<p:panelGrid columns="2">
+		<h:graphicImage alt="Logo Pizzaria" 
+			url="img/pizzaria.png"
+			height="290" width="375" />
+
+		<p:panelGrid columns="2" rendered="#{ not empty loginMB.usuario }">
+			<h:outputText value="#{msgs.campoUsuario}: #{loginMB.usuario} - "></h:outputText>
+			<p:commandLink immediate="true" value="#{msgs.linkSair}" action="#{loginMB.acaoSair}"></p:commandLink>
+		</p:panelGrid>
+	</p:panelGrid>
+
+</div>
+
+		<p:messages />
+
+		<ui:insert name="cabecalho"></ui:insert>
+		<ui:insert name="conteudo"></ui:insert>
+
+	</h:form>
+	
+	</p:panel>
+</h:body>
+</html>
